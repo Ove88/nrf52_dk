@@ -25,6 +25,10 @@
         {
             "name": "Win32",
             "includePath": [
+                "mbed-os/",
+                "ble/ble/",
+                "ble/services/",
+                "events/"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
