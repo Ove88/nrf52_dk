@@ -5,6 +5,28 @@
 # Boiler-plate
 
 # cross-platform directory manipulation
+ifeq ($(MMD), 1)
+CFLAGS += -O0 -ggdb -DDEBUG -DDEBUG_NRF
+CFLAGS += -DMMD
+ASMFLAGS += -mcpu=cortex-m4
+ASMFLAGS += -mthumb
+SRC_FILES += jlink_monitor_mode_debug/JLINK_MONITOR.c
+SRC_FILES += jlink_monitor_mode_debug/JLINK_MONITOR_ISR_ARM.s
+INC_FOLDERS += jlink_monitor_mode_debug
+$(info Building for monitor debug mode.)
+endif
+
+ifeq ($(HALT), 1)
+CFLAGS += -O0 -ggdb -DDEBUG -DDEBUG_NRF
+$(info Building for halt debug mode.)
+endif
+
+ifeq ($(RELEASE), 1)
+CFLAGS += -O3 -g3
+ASMFLAGS += -g3
+$(info Building for release.)
+endif
+
 ifeq ($(shell echo $$OS),$$OS)
     MAKEDIR = if not exist "$(1)" mkdir "$(1)"
     RM = rmdir /S /Q "$(1)"
@@ -201,6 +223,7 @@ INCLUDE_PATHS += -I../platform
 INCLUDE_PATHS += -I../rtos
 INCLUDE_PATHS += -I../rtx
 INCLUDE_PATHS += -I../rtx/TARGET_CORTEX_M
+INCLUDE_PATHS += -I../src
 
 LIBRARY_PATHS := -L../TARGET_NRF52_DK/TOOLCHAIN_GCC_ARM 
 LIBRARIES := -l:libmbed.a  -l:librtos.a  -l:librtx.a 
@@ -404,15 +427,15 @@ all: $(PROJECT).bin $(PROJECT)-combined.hex size
 	+@echo "Assemble: $(notdir $<)"
 	@$(AS) -c $(ASM_FLAGS) $(INCLUDE_PATHS) -o $@ $<
 
-.s.o:
-	+@$(call MAKEDIR,$(dir $@))
-	+@echo "Assemble: $(notdir $<)"
-	@$(AS) -c $(ASM_FLAGS) $(INCLUDE_PATHS) -o $@ $<
+#.s.o:
+#	+@$(call MAKEDIR,$(dir $@))
+#	+@echo "Assemble: $(notdir $<)"
+#	@$(AS) -c $(ASM_FLAGS) $(INCLUDE_PATHS) -o $@ $<
 
-.S.o:
-	+@$(call MAKEDIR,$(dir $@))
-	+@echo "Assemble: $(notdir $<)"
-	@$(AS) -c $(ASM_FLAGS) $(INCLUDE_PATHS) -o $@ $<
+#.S.o:
+#	+@$(call MAKEDIR,$(dir $@))
+#	+@echo "Assemble: $(notdir $<)"
+#	@$(AS) -c $(ASM_FLAGS) $(INCLUDE_PATHS) -o $@ $<
 
 .c.o:
 	+@$(call MAKEDIR,$(dir $@))
@@ -443,6 +466,7 @@ $(PROJECT)-combined.hex: $(PROJECT).hex
 	$(SREC_CAT) ../TARGET_NRF52_DK/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF52832/sdk/softdevice/s132/hex/s132_nrf52_2.0.0_softdevice.hex  -intel $(PROJECT).hex -intel -o $(PROJECT)-combined.hex -intel --line-length=44
 	+@echo "===== hex file ready to flash: $(OBJDIR)/$@ ====="
 
+# +@echo "NOTE: the $(SREC_CAT) binary is required to be present in your PATH. Please see http://srecord.sourceforge.net/ for more information."
 # Rules
 ###############################################################################
 # Dependencies

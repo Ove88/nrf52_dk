@@ -8,7 +8,7 @@
         {
             "taskName": "make",
             "command": "make",
-            "args": ["-j"],
+            "args": ["MMD=1"],
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": ["relative", "${workspaceRoot}/mbed-os"],
