@@ -1,0 +1,3 @@
+[submodule "ble"]
+	path = ble
+	url = https://github.com/armmbed/ble
