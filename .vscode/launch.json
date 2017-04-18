@@ -20,7 +20,7 @@
             "preLaunchTask": "make",
             "setupCommands": [
                 { "text": "-target-select remote localhost:2331", "description": "connect to target", "ignoreFailures": false },
-                { "text": "-file-exec-and-symbols C:/Users/Ove/.vscode/mbed_NRF52_DK/BUILD/mbed_NRF52_DK.elf", "description": "load file", "ignoreFailures": false},
+                { "text": "-file-exec-and-symbols C:/Users/ons/.vscode/mbed_NRF52_DK/BUILD/mbed_NRF52_DK.elf", "description": "load file", "ignoreFailures": false},
                 { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
@@ -39,7 +39,7 @@
                 "MIDebuggerPath": "arm-none-eabi-gdb.exe",
                 "setupCommands": [
                     { "text": "-target-select remote localhost:2331", "description": "connect to target", "ignoreFailures": false },
-                    { "text": "-file-exec-and-symbols C:/Users/Ove/.vscode/mbed_NRF52_DK/BUILD/mbed_NRF52_DK.elf", "description": "load file", "ignoreFailures": false},
+                    { "text": "-file-exec-and-symbols C:/Users/ons/.vscode/mbed_NRF52_DK/BUILD/mbed_NRF52_DK.elf", "description": "load file", "ignoreFailures": false},
                     { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
                 ]
             }
@@ -90,7 +90,7 @@
                 "MIMode": "gdb",
                 "MIDebuggerPath": "arm-none-eabi-gdb.exe",
                 "debugServerPath": "JLinkGDBServerCL.exe",
-                "debugServerArgs": "-select USB -device EFM32HG322F64 -if SWD -speed auto -noir",
+                "debugServerArgs": "-select USB -device nRF52832_xxAA -if SWD -speed auto -noir",
                 "setupCommands": [
                     { "text": "-target-select remote localhost:2331", "description": "connect to target", "ignoreFailures": false },
                     { "text": "-file-exec-and-symbols C:/Users/ons/.vscode/mbed_NRF52_DK/BUILD/mbed_NRF52_DK.elf", "description": "load file", "ignoreFailures": false},
