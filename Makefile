@@ -65,7 +65,7 @@ VPATH = ..
 ###############################################################################
 # Project settings
 
-PROJECT := mbed_NRF52_DK
+PROJECT := nrf52_dk
 
 
 # Project settings
@@ -157,6 +157,7 @@ INCLUDE_PATHS += -I../rtos
 INCLUDE_PATHS += -I../rtx
 INCLUDE_PATHS += -I../rtx/TARGET_CORTEX_M
 INCLUDE_PATHS += -I../src
+INCLUDE_PATHS += -I../netsocket
 INCLUDE_PATHS += -I../features
 INCLUDE_PATHS += -I../features/FEATURE_BLE
 INCLUDE_PATHS += -I../features/FEATURE_BLE/ble
