@@ -42,9 +42,9 @@
                     { "text": "-target-select remote localhost:2331", "description": "connect to target", "ignoreFailures": false },
                     { "text": "-file-exec-and-symbols C:/Users/ons/.vscode/Projects/nrf52_dk/BUILD/nrf52_dk.elf", "description": "load file", "ignoreFailures": false},
                     { "text": "-target-download", "description": "flash target", "ignoreFailures": false },
-                    { "text": "mon exec SetMonModeDebug = 1", "ignoreFailures": false },            // Enable monitor debug
-                    { "text": "mon exec SetMonModeVTableAddr = 0x1C000", "ignoreFailures": false }, // Set start address of program          
-                    { "text": "set {int}0x0003FC00 = 1", "ignoreFailures": false }                  // 0x0007F000    
+                    { "text": "set {int}0x0003FC00 = 1", "ignoreFailures": false },   //  0x0007F000  
+                    { "text": "mon exec SetMonModeDebug = 0x01", "ignoreFailures": false },            // Enable monitor debug
+                    { "text": "mon exec SetMonModeVTableAddr = 0x1C000", "ignoreFailures": false } // Set start address of program          
                 ]
             }
         }
