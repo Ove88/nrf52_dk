@@ -10,13 +10,9 @@ CFLAGS += -O0 -ggdb -DDEBUG -DDEBUG_NRF
 CFLAGS += -DMMD
 ASMFLAGS += -mcpu=cortex-m4
 ASMFLAGS += -mthumb
-SRC_FILES += jlink_mmd/JLINK_MONITOR.c
-SRC_FILES += jlink_mmd/JLINK_MONITOR_ISR_ARM.s
-INC_FOLDERS += jlink_mmd
-
-#OBJECTS += jlink_mmd/JLINK_MONITOR.o
-#OBJECTS += jlink_mmd/JLINK_MONITOR_ISR_ARM.o
-#INCLUDE_PATHS += -I../jlink_mmd
+OBJECTS += jlink_mmd/JLINK_MONITOR.o
+OBJECTS += jlink_mmd/JLINK_MONITOR_ISR_SES.o
+INCLUDE_PATHS += -I../jlink_mmd
 $(info Building for monitor debug mode.)
 endif
 
