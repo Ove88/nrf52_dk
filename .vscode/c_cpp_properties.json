@@ -25,10 +25,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "mbed-os/",
-                "ble/ble/",
-                "ble/services/",
-                "events/"
+                "drivers/",
+                "features/FEATURE_BLE/",
+                "features/FEATURE_BLE/ble",
+                ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,

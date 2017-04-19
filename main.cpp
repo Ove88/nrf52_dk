@@ -15,7 +15,7 @@
  */
 
 #include "mbed.h"
-#include "ble/ble.h"
+#include "ble.h"
 
 DigitalOut  led1(LED1, 1);
 InterruptIn button(BUTTON1);

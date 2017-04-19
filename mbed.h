@@ -39,7 +39,7 @@
 #endif
 
 #if MBED_CONF_NSAPI_PRESENT
-#include "netsocket/nsapi.h"
+#include "features/netsocket/nsapi.h"
 #endif
 
 #if MBED_CONF_EVENTS_PRESENT
