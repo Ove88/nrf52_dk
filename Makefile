@@ -69,7 +69,7 @@ PROJECT := nrf52_dk
 # Objects and Paths
 
 OBJECTS += main.o
-
+OBJECTS += BLE_Button.o
  SYS_OBJECTS += TARGET_NRF52_DK/TOOLCHAIN_GCC_ARM/startup_NRF52832.o
 
  SYS_OBJECTS += TARGET_NRF52_DK/TOOLCHAIN_GCC_ARM/btle/btle.o
